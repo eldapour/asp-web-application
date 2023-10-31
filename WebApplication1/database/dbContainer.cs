@@ -11,12 +11,18 @@ namespace WebApplication1.database
 {
     public class dbContainer:DbContext
     {
+       
+        public dbContainer(DbContextOptions<dbContainer> options) : base(options)
+        {
 
+        }
+
+      
         public DbSet<User> users { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer("server=DESKTOP-US9JT4L;database=dbweb;Integrated security=true");
-        }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    optionsBuilder.UseSqlServer("server=DESKTOP-US9JT4L;database=dbweb;Integrated security=true");
+        //}
     }
 }
