@@ -12,10 +12,16 @@ namespace WebApplication1.Controllers
     [ApiController]
     public class HomeServiceController : ControllerBase
     {
+        private readonly UserRepository user;
+
+        public HomeServiceController(UserRepository user)
+        {
+            this.user = user;
+        }
+
         [HttpGet]
         public IActionResult Get()
         {
-            UserRepository user = new UserRepository();
             var data = user.AllUsers();
             return Ok(data);
         }

@@ -9,10 +9,15 @@ namespace WebApplication1.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly UserRepository userRepository;
+
+        public HomeController(UserRepository userRepository)
+        {
+            this.userRepository = userRepository;
+        }
         public IActionResult Index()
         {
 
-            UserRepository userRepository = new UserRepository();
             ViewBag.users = userRepository.AllUsers();
             return View();
         }

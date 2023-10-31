@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using WebApplication1.database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using WebApplication1.Repository;
 
 namespace WebApplication1
 {
@@ -26,7 +27,8 @@ namespace WebApplication1
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContextPool<dbContainer>(a => a.UseSqlServer(conf.GetConnectionString("myCon")));
-            //services.AddControllersWithViews();
+            services.AddControllersWithViews();
+            services.AddScoped<UserRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
