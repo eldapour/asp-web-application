@@ -10,7 +10,8 @@ using System.Threading.Tasks;
 using WebApplication1.database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using WebApplication1.Repository;
+using WebApplication1.Interfaces;
+using WebApplication1.Repositories;
 
 namespace WebApplication1
 {
@@ -28,7 +29,9 @@ namespace WebApplication1
         {
             services.AddDbContextPool<dbContainer>(a => a.UseSqlServer(conf.GetConnectionString("myCon")));
             services.AddControllersWithViews();
-            services.AddScoped<UserRepository>();
+            //services.AddSingleton<IUserRepository, UserRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
+            //services.AddTransient<IUserRepository,UserRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -38,7 +41,7 @@ namespace WebApplication1
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseStaticFiles();  
             app.UseRouting();
 
             app.UseEndpoints(endpoints => endpoints.MapDefaultControllerRoute());

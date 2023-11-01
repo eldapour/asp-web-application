@@ -1,0 +1,56 @@
+﻿@model User
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Create</title>
+</head>
+<body>
+    <script src="~/lib/jquery/jquery.min.js"></script>
+    <script src="~/lib/jquery-validate/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <h1>Create</h1>
+    @*<form action="/user/create" method="post">
+            <label>user name</label>
+            <input type="text" name="userName" />
+
+            <label>email</label>
+            <input type="email" name="email" />
+
+            <label>password</label>
+            <input type="password" name="password" />
+
+            <button type="submit">Create</button>
+
+        </form>*@
+
+    @*@using (Html.BeginForm())
+            {
+        <div>
+            <label>user name</label>
+            @Html.TextBoxFor(a=>a.userName)
+            @Html.ValidationMessageFor(a=>a.userName)
+
+        <input type="submit" value="save" />
+        </div>
+            }*@
+
+
+<form action="/user/create" method="post">
+    <label>user name</label>
+    <input type="text" asp-for="userName" />
+    <span asp-validation-for="userName"></span>
+
+    <label>email</label>
+    <input type="email" asp-for="email" />
+    <span asp-validation-for="email"></span>
+
+    <label>password</label>
+    <input type="password" asp-for="password" />
+    <span asp-validation-for="password"></span>
+
+    <button type="submit">Create</button>
+
+</form>
+</body>
+</html>
+
+

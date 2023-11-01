@@ -1,25 +1,7 @@
-﻿<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title>Web</title>
-</head>
-<body>
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
 
-    <table>
-        <tr>
-            <td>#</td>
-            <td>name</td>
-            <td>email</td>
-        </tr>
-        @foreach (var user in ViewBag.users)
-        {
-            <tr>
-                <td>@user.Id</td>
-                <td>@user.userName</td>
-                <td>@user.email</td>
-            </tr>
-        }
+<h1>Index</h1>
 
-    </table>
-    
-</body>
-</html>

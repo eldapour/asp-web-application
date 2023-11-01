@@ -1,0 +1,25 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Web</title>
+</head>
+<body>
+    <a asp-action="Create" asp-controller="User">Create User</a>
+    <table>
+        <tr>
+            <td>#</td>
+            <td>name</td>
+            <td>email</td>
+        </tr>
+        @foreach (var user in ViewBag.users)
+        {
+            <tr>
+                <td>@user.Id</td>
+                <td>@user.userName</td>
+                <td>@user.email</td>
+            </tr>
+        }
+
+    </table>
+    
+</body>
+</html>
